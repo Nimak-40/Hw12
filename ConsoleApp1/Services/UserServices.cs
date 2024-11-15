@@ -32,7 +32,7 @@ public class UserServices : IUserService
 
     public bool Register(string username, string password)
     {
-
+        
         var existingUser = _userRepository.GetUserByUsername(username);
         if (existingUser != null&& existingUser==true)
         {

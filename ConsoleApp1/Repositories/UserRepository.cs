@@ -44,6 +44,12 @@ public class UserRepository : IUserRepository
 
     bool IUserRepository.GetUserByUsername(string username)
     {
-        throw new NotImplementedException();
+        if (string.IsNullOrEmpty(username))
+        {
+            throw new ArgumentException("Username cannot be null or empty.");
+        }
+
+        
+        return _context.Users.Any(user => user.UserName == username);
     }
 }

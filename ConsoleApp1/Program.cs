@@ -62,6 +62,7 @@ public class Program
             if (loginSuccess)
             {
                 Console.WriteLine("Login successful!");
+                RunUserTaskService();
             }
         }
         catch (Exception ex)
