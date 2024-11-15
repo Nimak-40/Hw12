@@ -17,18 +17,18 @@ public class UserTaskServices : IUserTaskService
         _userTaskRepository = new UserTaskRepository();
     }
 
-    public void Create(string title, TaskPriority priority, DateTime timeToDone)
+    public void Create(string title, TaskPriority priority, DateTime time)
     {
         var userId = InMemoryDb.User.Id;
 
-        _userTaskRepository.Create(title, priority, userId, timeToDone);
+        _userTaskRepository.Create(title, priority, userId, time);
 
 
     }
 
     public void ChangeState(int taskId, TaskState state)
     {
-        var tasks = InMemoryDb.User.Tasks;
+        var tasks = GetAllByPriority();
         foreach (var task in tasks)
         {
             if (task == null || task.UserId != InMemoryDb.User.Id)
@@ -47,7 +47,7 @@ public class UserTaskServices : IUserTaskService
 
     public void Delete(int taskId)
     {
-        var tasks = InMemoryDb.User.Tasks;
+        var tasks = GetAllByPriority();
         foreach (var task in tasks)
         {
             if (task == null || task.UserId != InMemoryDb.User.Id)

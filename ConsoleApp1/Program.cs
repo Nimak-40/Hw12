@@ -158,7 +158,7 @@ public class Program
     {
         Console.Write("Enter task title: ");
         var title = Console.ReadLine();
-
+        
         Console.Write("Enter task priority (Low, Medium, High): ");
         var priority = Enum.Parse<TaskPriority>(Console.ReadLine(), true);
 
@@ -198,7 +198,7 @@ public class Program
         Console.WriteLine("Tasks by Priority:");
         foreach (var task in tasks)
         {
-            Console.WriteLine($"ID: {task.Id}, Title: {task.Title}, Priority: {task.Priority}");
+            Console.WriteLine($"ID: {task.Id}, Title: {task.Title}, Priority: {task.Priority},State :{task.State}");
         }
     }
 
