@@ -81,7 +81,7 @@ public class UserTaskServices : IUserTaskService
 
     public void Update(UserTask task,int taskId)
     {
-        var Tasks = InMemoryDb.User.Tasks;
+        var Tasks = GetAllByPriority();
         if (Tasks == null )
         {
             throw new Exception("Task not found or access denied.");
@@ -96,12 +96,11 @@ public class UserTaskServices : IUserTaskService
                 existingTask.TaskSubmittingTime = task.TaskSubmittingTime;
                 existingTask.State = task.State;
                 _userTaskRepository.Update(existingTask);
+                throw new Exception("Task Is Succesfuly Updated.");
             }
+            
         }
-        throw new Exception("Task not found or access denied.");
-
-
-
+        
 
 
     }

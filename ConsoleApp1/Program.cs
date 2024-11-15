@@ -102,6 +102,7 @@ public class Program
 
     public  void RunUserTaskService()
     {
+        
         while (true)
         {
             Console.Clear();
@@ -239,7 +240,7 @@ public class Program
         Console.Write("Enter new task due date (yyyy-mm-dd): ");
         var timeToDone = DateTime.Parse(Console.ReadLine());
 
-        Console.Write("Enter new task state (Pending, InProgress, Completed): ");
+        Console.Write("Enter new task state (Pending, OnProgress, Completed, Canceled): ");
         var state = Enum.Parse<TaskState>(Console.ReadLine(), true);
 
         var task = new UserTask
