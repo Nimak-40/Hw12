@@ -11,5 +11,6 @@ public enum TaskState
 {
     Pending = 1,
     OnProgress,
+    Completed,
     Canceled
 }

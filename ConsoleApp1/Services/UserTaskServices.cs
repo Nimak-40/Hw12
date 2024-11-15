@@ -39,10 +39,10 @@ public class UserTaskServices : IUserTaskService
             {
                 task.State = state;
                 _userTaskRepository.ChangeState(taskId, state);
+                Console.WriteLine("State Succesfully changed.");
             }
 
         }
-        throw new Exception("somthing happend pleas try again later");
     }
 
     public void Delete(int taskId)

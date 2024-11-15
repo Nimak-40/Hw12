@@ -176,7 +176,7 @@ public class Program
         Console.Write("Enter task ID to change state: ");
         var taskId = int.Parse(Console.ReadLine());
 
-        Console.Write("Enter new task state (Pending, InProgress, Completed): ");
+        Console.Write("Enter new task state (Pending, OnProgress, Completed, Canceled): ");
         var state = Enum.Parse<TaskState>(Console.ReadLine(), true);
 
         _userTaskService.ChangeState(taskId, state);
@@ -198,7 +198,7 @@ public class Program
         Console.WriteLine("Tasks by Priority:");
         foreach (var task in tasks)
         {
-            Console.WriteLine($"ID: {task.Id}, Title: {task.Title}, Priority: {task.Priority},State :{task.State}");
+            Console.WriteLine($"ID: {task.Id}, Title: {task.Title}, Priority: {task.Priority},State :{task.State} , Submited Time:{task.TaskSubmittingTime}");
         }
     }
 
@@ -208,7 +208,7 @@ public class Program
         Console.WriteLine("Tasks by Submission Time:");
         foreach (var task in tasks)
         {
-            Console.WriteLine($"ID: {task.Id}, Title: {task.Title}, Submission Time: {task.TaskSubmittingTime}");
+            Console.WriteLine($"ID: {task.Id}, Title: {task.Title}, Priority: {task.Priority},State :{task.State}, Submission Time: {task.TaskSubmittingTime}");
         }
     }
 
